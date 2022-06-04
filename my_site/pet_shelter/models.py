@@ -57,23 +57,3 @@ class Pet(models.Model):
 
     def __str__(self):
         return f"{self.pet_name}"
-
-
-
-
-# class Dog(models.Model):
-#     dog_name = models.CharField(max_length=100)
-#     dog_age = models.PositiveSmallIntegerField()
-#     dog_breed = models.CharField(max_length=100)
-#     dog_color = models.CharField(max_length=30)
-#     treated_for_parasites = models.BooleanField(default=False)
-#     vaccinated = models.BooleanField(default=False)
-#     receipt_date = models.DateField(default=date.today)
-#     previous_owner = models.ForeignKey(Owner, on_delete=models.CASCADE,
-#                                        related_name="prev_owner",
-#                                        null=True, blank=True)
-#     new_owner = models.ForeignKey(Owner, on_delete=models.CASCADE,
-#                                   related_name="new_owner",
-#                                   null=True, blank=True)
-#     def __str__(self):
-#         return f"{self.dog_name}"
