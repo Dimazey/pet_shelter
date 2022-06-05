@@ -12,6 +12,7 @@ class Owner(models.Model):
     def __str__(self):
         return f"{self.full_name}"
 
+
 class Breed(models.Model):
     breed_name = models.CharField(max_length=100)
 
@@ -24,6 +25,7 @@ class Color(models.Model):
 
     def __str__(self):
         return f"{self.color_name}"
+
 
 class Pet(models.Model):
     PETS_KINDS = [
