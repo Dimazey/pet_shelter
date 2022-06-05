@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приют&mdash;домашних&mdash;животных{% block extra_title %}{% endblock extra_title%}</title>
+    {% block bootstrap_header %}
+    <link rel="stilesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+    {% endblock bootstrap_header %}
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
+    {% block extra_head %}
+    {% endblock extra_head %}
+</head>
+<body>
+
+{% block content %}
+{% endblock content %}
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
