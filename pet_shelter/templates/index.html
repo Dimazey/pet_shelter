@@ -1,22 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+ {% load static %}
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приют&mdash;домашних&mdash;животных{% block extra_title %}{% endblock extra_title%}</title>
-    {% block bootstrap_header %}
-    <link rel="stilesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-    {% endblock bootstrap_header %}
-    <link rel="stylesheet" href="{{ STATIC_URL}}css/style.css">
-    <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
+    <title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
     {% block extra_head %}
+    <style type="text/css">
+    .kind-link:nth-of-type({{ recent_link }}) {
+    opacity: 0.6;
+    cursor: not-allowed;
+   }
+  </style>
     {% endblock extra_head %}
 </head>
 <body>
+    {% block content %}
 
-{% block content %}
-{% endblock content %}
+    <div class="d-inline-flex mt-4">
+        <a href="/index" class="me-3 px-2 kind-link">
+            <div class="d-flex flex-column justify-content-center">
+                <img src="{% static 'img/cat.png' %}" height="64" width="64" style="margin: auto;">
+                <span>Кошки и котята</span>
+            </div>
+        </a>
+        <a href="/dog" class="me-3 px-2 kind-link">
+            <div class="d-flex flex-column justify-content-center">
+                <img src="{% static 'img/dog.png' %}" height="64" width="64" style="margin: auto;">
+                <span>Собаки и щенята</span>
+            </div>
+        </a>
+        <a href="/parrot" class="me-3 px-2 kind-link">
+            <div class="d-flex flex-column justify-content-center ">
+                <img src="{% static 'img/parrot.png' %}" height="64" width="64" style="margin: auto;">
+                <span>Попугаи</span>
+            </div>
+        </a>
+    </div>
 
-<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.bundle.min.js"></script>
+    <div class="d-flex mt-4">
+        {% for pet in pets %}
+            <div class="me-3">
+                <a href="/pets/{{pet.pk}}">
+                    <img height="200" width="200" src="{{ pet.pet_photo.url }}" alt="" class="fit">
+                </a>
+                <div>{{ pet.pet_name }}</div>
+                </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

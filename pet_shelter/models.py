@@ -38,7 +38,7 @@ class Pet(models.Model):
                                    default='CT',
                                    verbose_name='Вид животного')
     pet_name = models.CharField(max_length=100, verbose_name='Кличка')
-    pet_photo = models.ImageField(upload_to='pet_shelter/media/photos', blank=True)
+    pet_photo = models.ImageField(upload_to='photos', blank=True)
     pet_age = models.PositiveSmallIntegerField(verbose_name='Возраст')
     pet_breed = models.ForeignKey(Breed, on_delete=models.CASCADE,
                                   related_name="breed",
