@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 from pet_shelter.models import Pet, Owner, Breed, Color
+from django.views.generic.detail import DetailView
+
 
 # Create your views here.
 def index(request):
@@ -29,10 +31,15 @@ def dog(request):
 def parrot(request):
     template = loader.get_template('index.html')
     pets = Pet.objects.all().filter(kind_of_pet='PT')
-    pets_data ={
+    pets_data = {
         'title': 'наши питомцы',
         'pets': pets,
         'recent_link': '3',
     }
 
     return HttpResponse(template.render(pets_data))
+
+class PetDetailView(DetailView):
+
+    model = Pet
+

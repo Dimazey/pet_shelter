@@ -16,19 +16,19 @@
     {% block content %}
 
     <div class="d-inline-flex mt-4">
-        <a href="/index" class="me-3 px-2 kind-link">
+        <a href="/index" class="me-3 px-2 nav-link kind-link ">
             <div class="d-flex flex-column justify-content-center">
                 <img src="{% static 'img/cat.png' %}" height="64" width="64" style="margin: auto;">
                 <span>Кошки и котята</span>
             </div>
         </a>
-        <a href="/dog" class="me-3 px-2 kind-link">
+        <a href="/dog" class="me-3 px-2 nav-link kind-link">
             <div class="d-flex flex-column justify-content-center">
                 <img src="{% static 'img/dog.png' %}" height="64" width="64" style="margin: auto;">
                 <span>Собаки и щенята</span>
             </div>
         </a>
-        <a href="/parrot" class="me-3 px-2 kind-link">
+        <a href="/parrot" class="me-3 px-2 nav-link kind-link">
             <div class="d-flex flex-column justify-content-center ">
                 <img src="{% static 'img/parrot.png' %}" height="64" width="64" style="margin: auto;">
                 <span>Попугаи</span>
@@ -39,7 +39,7 @@
     <div class="d-flex mt-4">
         {% for pet in pets %}
             <div class="me-3">
-                <a href="/pets/{{pet.pk}}">
+                <a href="/{{pet.pk}}">
                     <img height="200" width="200" src="{{ pet.pet_photo.url }}" alt="" class="fit">
                 </a>
                 <div>{{ pet.pet_name }}</div>

@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from pet_shelter import views
-from pet_shelter.views import index
 from django.conf import settings
+from pet_shelter.views import PetDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('index/', views.index),
     path('dog/', views.dog),
     path('parrot/', views.parrot),
+    path('<int:pk>/', PetDetailView.as_view()),
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+ {% load static %}
+
+<head>
+    <title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
+    {% block extra_head %}
+    <style type="text/css">
+    .kind-link:nth-of-type({{ recent_link }}) {
+    opacity: 0.6;
+    cursor: not-allowed;
+   }
+  </style>
+    {% endblock extra_head %}
+</head>
+<body>
+    {% block content %}
+    <div class="card" style="width: 18rem;">
+  <img src="{{ object.pet_photo.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Кличка: {{ object.pet_name }}</h5>
+    <p class="card-text">Возраст: {{ object.pet_age}}</p>
+    <a href="#" class="btn btn-primary">Забрать домой</a>
+  </div>
+</div>
+
+
+    {% endblock content %}
+
+</body>
+</html>
