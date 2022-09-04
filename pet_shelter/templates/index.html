@@ -39,10 +39,15 @@
     <div class="d-flex mt-4">
         {% for pet in pets %}
             <div class="me-3">
-                <a href="/{{pet.pk}}">
-                    <img height="200" width="200" src="{{ pet.pet_photo.url }}" alt="" class="fit">
+                <a href="/{{pet.pk}}" class="nav-link">
+                    <div class="card" style="width: 10rem;">
+                        <img src="{{ pet.pet_photo.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pet.pet_name }}</h5>
+                            <p class="card-text">Возраст: {{ pet.pet_age}}</p>
+                        </div>
+            </div>
                 </a>
-                <div>{{ pet.pet_name }}</div>
                 </div>
         {% endfor %}
     </div>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 from pet_shelter.models import Pet, Owner, Breed, Color
-from django.views.generic.detail import DetailView
+from django.views.generic import DetailView, ListView
 
 
 # Create your views here.
@@ -40,6 +40,26 @@ def parrot(request):
     return HttpResponse(template.render(pets_data))
 
 class PetDetailView(DetailView):
-
     model = Pet
+
+def about(request):
+    template = loader.get_template('about.html')
+    pet_count = Pet.objects.count()
+    about_data = {
+        'pet_count': pet_count,
+    }
+    return HttpResponse(template.render(about_data))
+
+class PetListView(ListView):
+    model = Pet
+    template_name = "pet_list.html"
+
+    def get_queryset(self, **kwargs):
+        qs = super().get_queryset(**kwargs)
+        return qs.filter(kind_of_pet='CT')
+
+
+
+
+
 

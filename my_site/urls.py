@@ -27,5 +27,7 @@ urlpatterns = [
     path('dog/', views.dog),
     path('parrot/', views.parrot),
     path('<int:pk>/', PetDetailView.as_view()),
+    path('about/', views.about),
+    path('pet_list/', views.PetListView.as_view())
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -15,13 +15,13 @@
 <body>
     {% block content %}
     <div class="card" style="width: 18rem;">
-  <img src="{{ object.pet_photo.url }}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Кличка: {{ object.pet_name }}</h5>
-    <p class="card-text">Возраст: {{ object.pet_age}}</p>
-    <a href="#" class="btn btn-primary">Забрать домой</a>
-  </div>
-</div>
+        <img src="{{ object.pet_photo.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Кличка: {{ object.pet_name }}</h5>
+            <p class="card-text">Возраст: {{ object.pet_age}}</p>
+            <a href="#" class="btn btn-primary">Забрать домой</a>
+        </div>
+    </div>
 
 
     {% endblock content %}
