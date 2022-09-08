@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+ {% load static %}
+
+<head>
+    <title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
+    {% block extra_head %}
+    <style type="text/css">
+    .kind-link:nth-of-type({{ recent_link }}) {
+    opacity: 0.6;
+    cursor: not-allowed;
+   }
+  </style>
+    {% endblock extra_head %}
+</head>
+<body>
+    {% block content %}
+
+    <div class="d-inline-flex mt-4">
+        <a href="/list/CT/" class="me-3 px-2 nav-link kind-link ">
+            <div class="d-flex flex-column justify-content-center">
+                <img src="{% static 'img/cat.png' %}" height="64" width="64" style="margin: auto;">
+                <span>Кошки и котята</span>
+            </div>
+        </a>
+        <a href="/list/DG/" class="me-3 px-2 nav-link kind-link">
+            <div class="d-flex flex-column justify-content-center">
+                <img src="{% static 'img/dog.png' %}" height="64" width="64" style="margin: auto;">
+                <span>Собаки и щенята</span>
+            </div>
+        </a>
+        <a href="/list/PT/" class="me-3 px-2 nav-link kind-link">
+            <div class="d-flex flex-column justify-content-center ">
+                <img src="{% static 'img/parrot.png' %}" height="64" width="64" style="margin: auto;">
+                <span>Попугаи</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="d-flex mt-4">
+        {% for pet in object_list %}
+            <div class="me-3">
+                <a href="/{{pet.pk}}" class="nav-link">
+                    <div class="card" style="width: 10rem;">
+                        <img src="{{ pet.pet_photo.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pet.pet_name }}</h5>
+                            <p class="card-text">Возраст: {{ pet.pet_age}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

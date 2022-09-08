@@ -17,27 +17,6 @@ def index(request):
 
     return HttpResponse(template.render(pets_data))
 
-def dog(request):
-    template = loader.get_template('index.html')
-    pets = Pet.objects.all().filter(kind_of_pet='DG')
-    pets_data ={
-        'title': 'наши питомцы',
-        'pets': pets,
-        'recent_link': '2',
-    }
-
-    return HttpResponse(template.render(pets_data))
-
-def parrot(request):
-    template = loader.get_template('index.html')
-    pets = Pet.objects.all().filter(kind_of_pet='PT')
-    pets_data = {
-        'title': 'наши питомцы',
-        'pets': pets,
-        'recent_link': '3',
-    }
-
-    return HttpResponse(template.render(pets_data))
 
 class PetDetailView(DetailView):
     model = Pet
@@ -51,13 +30,34 @@ def about(request):
     return HttpResponse(template.render(about_data))
 
 class PetListView(ListView):
+
+    def __init__(self, category='CT'):
+        self.category = category
+
     model = Pet
     template_name = "pet_list.html"
 
     def get_queryset(self, **kwargs):
+        category = self.kwargs.get('category', None)
         qs = super().get_queryset(**kwargs)
-        return qs.filter(kind_of_pet='CT')
+        if category is not None:  # если аргумент существует
+            self.category = category
+            return qs.filter(kind_of_pet=category)
+        else:
+            return qs.filter(kind_of_pet='CT')
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(self.category)
+        categories = {
+            'CT': '1',
+            'DG': '2',
+            'PT': '3'
+        }
+
+        context['recent_link'] = categories[self.category]
+
+        return context
 
 
 

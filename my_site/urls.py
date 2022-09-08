@@ -22,12 +22,10 @@ from pet_shelter.views import PetDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
-    path('index/', views.index),
-    path('dog/', views.dog),
-    path('parrot/', views.parrot),
+    path('', views.PetListView.as_view()),
+    path('index/', views.PetListView.as_view()),
     path('<int:pk>/', PetDetailView.as_view()),
     path('about/', views.about),
-    path('pet_list/', views.PetListView.as_view())
+    path('list/<category>/', views.PetListView.as_view()),
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
