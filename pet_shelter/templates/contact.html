@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+<head>
+<title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
+
+</head>
+<body>
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-4" >
+               <div class="col-4 offset-md-2">
+                   <p> Вы можете связаться с нами по телефону: 400 450-50-50</p>
+                   <p> Или по электронной почте: petsh911@gmail.ru</p>
+                   <p> Всегда рады видеть вас у нас по адресу: Малая Арнаутская д. 614 </p>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock content %}
+
+</body>
+</html>

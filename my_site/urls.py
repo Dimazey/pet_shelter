@@ -21,11 +21,14 @@ from django.conf import settings
 from pet_shelter.views import PetDetailView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.PetListView.as_view()),
+    path('admin/', admin.site.urls),
     path('index/', views.PetListView.as_view()),
     path('<int:pk>/', PetDetailView.as_view()),
     path('about/', views.about),
+    path('contact/', views.contact),
     path('list/<category>/', views.PetListView.as_view()),
+    path('gettohome/<int:pk>/', views.GetToHomeFormView.as_view()),
 
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

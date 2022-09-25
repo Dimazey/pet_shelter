@@ -18,8 +18,18 @@
         <img src="{{ object.pet_photo.url }}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Кличка: {{ object.pet_name }}</h5>
-            <p class="card-text">Возраст: {{ object.pet_age}}</p>
-            <a href="#" class="btn btn-primary">Забрать домой</a>
+            <p class="card-text">
+                Возраст: {{ object.pet_age}}<br>
+                Порода:  {{ object.pet_breed }}<br>
+                Окрас:  {{ object.pet_color }}<br>
+                Описание:  {{ object.description }}<br>
+            </p>
+            <form action="/gettohome/{{pet.pk}}">
+                <button class="btn btn-primary">
+                    Забрать домой
+                </button>
+            </form>
+
         </div>
     </div>
 

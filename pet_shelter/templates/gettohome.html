@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+<head>
+<title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
+
+</head>
+<body>
+{% block content %}
+    <div class="container">
+        <div class="row mt-4" >
+            <div class="col-6 offset-md-2">
+                <p> {{ pet_pk }} {{ pet_name }} очень хочет к вам домой. Заполните форму ниже и мы свяжемся с вами как можно быстрее.</p>
+                <p>Чтобы помочь вам приобрести настоящего друга<p>
+
+                <form action="/" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    <p><input type="submit" value="Send the form!"></p>
+                </form>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock content %}
+
+</body>
+</html>

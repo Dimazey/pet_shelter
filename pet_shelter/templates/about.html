@@ -1,55 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% extends "base.html" %}
+{% load static %}
 <head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приют домашних животных{% block extra_title %}{% endblock extra_title%}</title>
-    {% block bootstrap_header %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    {% endblock bootstrap_header %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!--
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    -->
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    {% block extra_head %}
-    {% endblock extra_head %}
+<title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
+
 </head>
 <body>
+
+{% block content %}
     <div class="container">
-        <nav class="row .mt-3" >
-            <div class="col-12 d-flex" >
-                <a href="/index/">
-                    <img src="{% static 'img/logo.png' %}" height="48" width="160" class="rounded float-start">
-                 </a>
-                <div class="nav nav-tabs d-flex align-items-end">
-                    <a class="nav-link" href="../index/">Наши питомцы</a>
-                    <a class="nav-link" href="../about/">О приюте</a>
-                    <a class="nav-link" href="../contact/">Контакты</a>
-                </div>
-            </div>
-        </nav>
         <div class="row mt-4" >
-               <div class="col-12">
-                {% block content %}
+
+              <div class="col-6 offset-md-2">
                    <p>Мы – единственный шанс наших питомцев выжить и обрести новую жизнь.
                        Любому по силам спасти животное и подарить ему новую жизнь, тепло, ласку,
                        Они подарят вам свою душу, сердце и станут самыми преданными вашими друзьями!
                    <p>С помощью этого сайта мы уже помогли {{ pet_count }} домашним животным </p>
-                {% endblock content %}
-            </div>
+
+              </div>
 
         </div>
 
     </div>
-    <footer class="footer fixed-bottom">
-        <div class="container">
-            FOOTER
-        </div>
-    </footer>
-<script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock content %}
+
 </body>
 </html>
