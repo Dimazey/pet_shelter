@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+<head>
+<title>{% block extra_title %} {{ title }} {% endblock extra_title%}</title>
+
+</head>
+<body>
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-4" >
+               <div class="col-4 offset-md-2">
+                   <p>Ваше сообщение получено.<br>
+                       <b>{{ pet_name }}</b> и мы благодарим вас.<br>
+                   В самое ближайшее время мы свяжемся с вами</p>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock content %}
+
+</body>
+</html>

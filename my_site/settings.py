@@ -134,3 +134,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'petsshelterpost@mail.ru'
+EMAIL_HOST_PASSWORD = 'Uctgvt30Jn12ytyR9pwP'
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

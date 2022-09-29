@@ -33,10 +33,18 @@ class Pet(models.Model):
         ('DG', 'dog'),
         ('PT', 'parrot')
     ]
+    PET_GENDER = [
+        ('M', 'Male'),
+        ('F', 'Female')
+    ]
     kind_of_pet = models.CharField(max_length=2,
                                    choices=PETS_KINDS,
                                    default='CT',
                                    verbose_name='Вид животного')
+    pet_gender = models.CharField(max_length=1,
+                                   choices=PET_GENDER,
+                                   default='',
+                                   verbose_name='Пол животного')
     pet_name = models.CharField(max_length=100, verbose_name='Кличка')
     pet_photo = models.ImageField(upload_to='photos', blank=True)
     pet_age = models.PositiveSmallIntegerField(verbose_name='Возраст')

@@ -29,6 +29,8 @@ urlpatterns = [
     path('contact/', views.contact),
     path('list/<category>/', views.PetListView.as_view()),
     path('gettohome/<int:pk>/', views.GetToHomeFormView.as_view()),
+    path('thanks/<pet_name>/', views.thanks),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
