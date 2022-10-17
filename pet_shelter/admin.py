@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pet_shelter.models import Pet, Owner, Breed, Color
+
 # Register your models here.
 
 
